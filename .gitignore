@@ -1,0 +1,11 @@
+# ignore . txt files
+*.txt
+
+# ignore the logs directory
+/logs
+
+# ignore a specific file
+example.json
+
+# ignore files in the tmp directory
+/tmp/*
