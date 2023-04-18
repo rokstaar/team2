@@ -1,5 +1,7 @@
 package com.market.persistence;
 
-public interface MemberDAO {
+import com.market.domain.MemberVO;
 
+public interface MemberDAO {
+	public MemberVO loginMember(MemberVO vo);
 }
