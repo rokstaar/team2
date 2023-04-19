@@ -13,7 +13,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="resources/assets/css/main.css" />
+		<link rel="stylesheet" href="/resources/assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -28,15 +28,15 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="/main" class="logo"><strong>있지마켓</strong></a>
+									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
 									<ul class="icons">
 										<c:if test="${id == null }">
 											<li><a href="/members/login"><span class="label">로그인</span></a></li>
 										</c:if>
 										<c:if test="${id != null }">
 											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
-										<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
 										</c:if>
+										<li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
 										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
 									</ul>
@@ -46,17 +46,19 @@
 								<section id="banner">
 									<div class="content">
 										<header>
-											<h1>Hi, I’m Editorial<br />
-											by HTML5 UP</h1>
-											<p>A free and fully responsive site template</p>
+											<h1>HOT<br />
+											${best.au_title }</h1>
+											<p>기간 : ${best.au_endTime }<br>
+											시작가 : ${best.au_startPrice }<br>
+											현재 입찰금 : ${best.au_bidPrice }<br>
+											즉시 구매가 : ${best.au_endPrice } </p>
 										</header>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
 										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
+											<li><a href="#" class="button big">입찰하기</a></li>
 										</ul>
 									</div>
 									<span class="image object">
-										<img src="resources/images/pic10.jpg" alt="" />
+										<img src="resources/images/air.jpg" alt="" />
 									</span>
 								</section>
 
@@ -252,11 +254,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="resources/assets/js/jquery.min.js"></script>
-			<script src="resources/assets/js/skel.min.js"></script>
-			<script src="resources/assets/js/util.js"></script>
+			<script src="/resources/assets/js/jquery.min.js"></script>
+			<script src="/resources/assets/js/skel.min.js"></script>
+			<script src="/resources/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="resources/assets/js/main.js"></script>
+			<script src="/resources/assets/js/main.js"></script>
 
 	</body>
 </html>
