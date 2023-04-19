@@ -31,13 +31,19 @@ public class MembersController {
 		
 		if(result != null) {
 			session.setAttribute("id", result.getMember_id());
-			System.out.println("@@@@@@@@@@" + result.getMember_id());
 			
 			return "redirect:/main";
 		}else {
 			return "redirect:/members/login";
 		}
 		
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutGET(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/main";
 	}
 
 }
