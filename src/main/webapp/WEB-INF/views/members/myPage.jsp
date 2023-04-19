@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -149,6 +150,15 @@ div{
   height: 56px;
   box-sizing: border-box;
 }
+.listContainer .text1{  
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  color:  #3F72AF;
+  text-decoration: none;  
+  height: 56px;
+  box-sizing: border-box;
+}
 .listContainer .icon{  
   margin-right: 14px;
 }
@@ -292,9 +302,24 @@ div{
 									      </div>     
 									      
 									    </div>
-									    
+
+													    
 									  </div>  
-									</div>		
+									</div>	
+									 <div class="infoContainer">
+									    <a href="#" class="text1">
+									      <div>icon</div>
+									      <div>공지사항</div>
+									    </a>    
+									    <a href="#" class="text1">
+									      <div>icos</div>
+									      <div>이용안내</div>
+									    </a>    
+									    <a href="#" class="text1">
+									      <div>icon</div>
+									      <div>고객센터</div>
+									    </a>
+									  </div>	
 									
 									</div>
 								</section>
@@ -303,17 +328,17 @@ div{
 					</div>
 
 				<!-- Sidebar -->
-					<div id="sidebar">
+					<!-- <div id="sidebar">
 						<div class="inner">
 
-							<!-- Search -->
+							Search
 								<section id="search" class="alt">
 									<form method="post" action="#">
 										<input type="text" name="query" id="query" placeholder="Search" />
 									</form>
 								</section>
 
-							<!-- Menu -->
+							Menu
 								<nav id="menu">
 									<header class="major">
 										<h2>Menu</h2>
@@ -348,7 +373,7 @@ div{
 									</ul>
 								</nav>
 
-							<!-- Section -->
+							Section
 								<section>
 									<header class="major">
 										<h2>Ante interdum</h2>
@@ -372,7 +397,7 @@ div{
 									</ul>
 								</section>
 
-							<!-- Section -->
+							Section
 								<section>
 									<header class="major">
 										<h2>Get in touch</h2>
@@ -386,14 +411,14 @@ div{
 									</ul>
 								</section>
 
-							<!-- Footer -->
+							Footer
 								<footer id="footer">
 									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 								</footer>
 
 						</div>
-					</div>
-
+					</div> -->
+					<%@ include file="../include/sidebar.jsp" %>
 			</div>
 
 		<!-- Scripts -->
