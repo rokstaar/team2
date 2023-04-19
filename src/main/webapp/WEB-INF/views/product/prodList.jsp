@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,65 @@
 <body>
 	<h1>상품 페이지</h1>
 	
-	${prodList }
+	<table>
+		<thead>
+			<tr>
+				<th>상품번호</th>
+				<th>판매자</th>
+				<th>분류</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>가격</th>
+				<th>사진</th>
+				<th>조회수</th>
+				<th>등록일자</th>
+				<th>상품상태</th>
+				<th>좋아요</th>
+			</tr>
+		</thead>
+		<tbody>
+	<c:forEach var="list" items="${prodList }">
+		<tr>
+			<td>${list.product_num }</td>
+			<td>${list.product_seller }</td>
+			<td>${list.product_cate }</td>
+			<td>${list.product_title }</td>
+			<td>${list.product_content }</td>
+			<td>${list.product_price }</td>
+			<td>${list.product_pic }</td>
+			<td>${list.product_readcount }</td>
+			<td>${list.product_date }</td>
+			<td>${list.product_status }</td>
+			<td id="${list.product_num }">${list.product_favorite }</td>
+		</tr>
+	</c:forEach>
+		</tbody>
+	</table>
+	
+	<a href="/product/prodList?category=가전제품&sort=price_asc">누르시오</a>
+	
+	<button type="button" onclick="likeit(1);">누르면 찜</button>
+	
+	<script src="https://code.jquery.com/jquery-3.6.4.js" 
+	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+	<script>
+	function likeit(pnum){
+		$.ajax({
+			type: "GET",
+			url: "/product/likeProd",
+			dataType: "text",
+			data: {product_num : pnum},
+			success: function(response){
+				console.log("찜 목록");
+			},
+			error: function(req, stat, error){
+				var obj = $('#'+pnum);
+				obj.html(Number(obj.html())+1);
+				alert(stat + " - " + error + " [에러 발생]" + req);
+			}
+		});
+	}
+	</script>
+		
 </body>
 </html>
