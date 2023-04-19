@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.market.mapper.auctionMapper">
+	<select id="getAList" resultType="com.market.domain.AuctionVO">
+		select * from auction
+	</select>
+	
+	<select id="nowBest" resultType="com.market.domain.AuctionVO">
+		select *
+		from auction
+		where au_num = (select au_num
+						from auction
+						group by au_num
+						having au_status = 0
+						order by count(*) desc
+						limit 1)
+		order by au_bidPrice desc
+		limit 1;
+	</select>
+	
+	<insert id="registerAuction">
+		insert into auction(au_startPrice, au_endTime, au_sellerId, au_endPrice, au_pic, au_title, au_content)
+		values(#{au_startPrice}, #{au_endTime}, #{au_sellerId}, #{au_endPrice}, #{au_pic}, #{au_title}, #{au_content})
+	</insert>
+
+</mapper>
