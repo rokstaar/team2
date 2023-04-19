@@ -7,6 +7,17 @@
 	<!-- 상품 리스트 -->
 	<select id="getProdList" parameterType="map" resultType="ProductVO">
 		SELECT * FROM PRODUCT
+		<where>
+	        <if test="status != null">
+	            AND PRODUCT_STATUS LIKE CONCAT('%', #{status}, '%')
+	        </if>
+	        <if test="category != null">
+	            AND PRODUCT_CATE LIKE CONCAT('%', #{category}, '%')
+	        </if>
+	        <if test="title != null">
+	            AND PRODUCT_TITLE LIKE CONCAT('%', #{title}, '%')
+	        </if>
+	    </where>
 		<choose>
 	        <when test="sortBy == 'price_asc'">
 	            ORDER BY PRODUCT_PRICE ASC
@@ -21,7 +32,7 @@
 	            ORDER BY PRODUCT_DATE DESC
 	        </when>
 	        <otherwise>
-	            ORDER BY product_num ASC
+	            ORDER BY PRODUCT_NUM ASC
 	        </otherwise>
     	</choose>
 	</select>
@@ -34,6 +45,13 @@
 	<!-- 같은 카테고리의 상품 추천 -->
 	
 	<!-- 같은 카테고리의 상품 추천 -->
+	
+	<!-- 찜하기 -->
+	<update id="likeProd">
+		UPDATE PRODUCT SET PRODUCT_FAVORITE = PRODUCT_FAVORITE + 1
+		WHERE PRODUCT_NUM = #{PRODUCT_NUM}
+	</update>
+	<!-- 찜하기 -->
 </mapper>
 
 

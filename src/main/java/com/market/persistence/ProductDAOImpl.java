@@ -19,10 +19,17 @@ public class ProductDAOImpl implements ProductDAO{
 	private SqlSession session;
 	private final String NAMESPACE = "com.itwillbs.mapper.ProductMapper";
 
+	// 상품 리스트
 	@Override
 	public List<ProductVO> getProdList(Map<String, Object> map) {
-		logger.info("DAO - 상품 리스트 호출");
+		logger.info("DAO - 상품 리스트 호출 {}", map);
 		return session.selectList(NAMESPACE + ".getProdList", map);
+	}
+
+	// 찜하기
+	@Override
+	public void likeProd(int product_num) {
+		session.update(NAMESPACE + ".likeProd", product_num);
 	}
 	
 	

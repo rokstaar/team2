@@ -10,5 +10,9 @@ import com.market.domain.ProductVO;
 @Mapper
 public interface ProductDAO {
 
+	// 상품 리스트
 	public List<ProductVO> getProdList(Map<String, Object> map);
+	
+	// 찜하기
+	public void likeProd(int pnum);
 }

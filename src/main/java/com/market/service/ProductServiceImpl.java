@@ -20,11 +20,19 @@ public class ProductServiceImpl implements ProductService{
 	ProductDAO pdao;
 	
 	@Override
-	public List<ProductVO> getProdList(String value) {
+	public List<ProductVO> getProdList(String status, String category, String title, String sort) {
 		logger.info("service - 상품 목록 호출");
 		Map<String, Object> map = new HashMap<>();
-		map.put("sortBy", value);
+		map.put("status", status);
+		map.put("category", category);
+		map.put("title", title);
+		map.put("sortBy", sort);
 		return pdao.getProdList(map);
+	}
+
+	@Override
+	public void likeProd(int pnum) {
+		pdao.likeProd(pnum);
 	}
 
 }
