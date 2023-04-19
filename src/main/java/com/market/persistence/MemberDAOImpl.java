@@ -12,11 +12,12 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Inject
 	private SqlSession sqlSession;
-
+	
+	private static final String NAMESPACE = "com.itwillbs.mapper.memberMapper";
 	@Override
 	public MemberVO loginMember(MemberVO vo) {
 		
-		return sqlSession.selectOne("login",vo);
+		return sqlSession.selectOne(NAMESPACE+".login",vo);
 	}
 	
 
