@@ -28,15 +28,15 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<a href="/main" class="logo"><strong>있지마켓</strong></a>
 									<ul class="icons">
 										<c:if test="${id == null }">
 											<li><a href="/members/login"><span class="label">로그인</span></a></li>
 										</c:if>
 										<c:if test="${id != null }">
 											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
+										<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
 										</c:if>
-										<li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
 										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
 									</ul>

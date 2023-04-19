@@ -3,6 +3,8 @@ package com.market.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +17,14 @@ import com.market.service.MemberService;
 @RequestMapping(value = "/members")
 public class MembersController {
 	
+	
+
 	@Inject
 	private MemberService service;
+
+	private static final Logger logger = LoggerFactory.getLogger(MembersController.class);
 	
+	//http://localhost:8080/main
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGET() {
 		
@@ -44,6 +51,13 @@ public class MembersController {
 		session.invalidate();
 		
 		return "redirect:/main";
+	}
+	
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public String myPageGET() {
+		
+		
+		return "/members/myPage";
 	}
 
 }
