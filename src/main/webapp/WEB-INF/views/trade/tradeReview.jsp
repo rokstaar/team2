@@ -20,6 +20,7 @@ div{
   box-sizing: border-box;
 }
 
+
 /* alert badge */
 .circle{
   display: inline-block;
@@ -184,7 +185,8 @@ div{
   background-color: white; 
   display: flex;
   height: 100px;
-  margin-bottom: 10px;    
+  margin-bottom: 10px;  
+  text-decoration: none;
 }
 
 /* .infoContainer .item{
@@ -207,10 +209,13 @@ div{
   text-decoration: none;
   color: 769fcd;
   font-weight: bold;
-}
-.infoContainer .item > div:first-child{
+  border-bottom: solid 5px #769fcd;
+  border-right:  solid 5px #769fcd;
+} 
+
+/* .infoContainer .item > div:first-child{
   margin-bottom: 2px;
-}
+} */
 
 
 
@@ -249,10 +254,8 @@ div{
 										<c:if test="${id != null }">
 											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
 											<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
-											<li><a href="#"><span class="label">판매하기</span></a></li>
+											<li><a href="/members/logout"><span class="label">판매하기</span></a></li>
 										</c:if>
-									
-										
 									</ul>
 								</header>
 
@@ -300,7 +303,7 @@ div{
 									        </div>
 									      </div>     
 									      <div class="item">
-									      <a href="/trade/review" >  <div>
+									      <a href="/members/tradeReview">  <div>
 									          <div class="text">거래후기</div>
 									          <div class="rightBlue number">3</div></a>
 									        </div>
@@ -313,8 +316,12 @@ div{
 									</div>	
 									 
 									 <div class="infoContainer">
+									    <a href="/trade/buyReview" class="item">
+									      <div>구매후기</div>
+									    </a>    
+									
 									    <a href="#" class="item">
-									      <div>거래내역</div>
+									      <div>판매후기</div>
 									    </a>    
 									  </div>	
 									
