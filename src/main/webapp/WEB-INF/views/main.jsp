@@ -32,11 +32,20 @@
 									<ul class="icons">
 										<c:if test="${id == null }">
 											<li><a href="/members/login"><span class="label">로그인</span></a></li>
+											<li><a href="#"><span class="label">회원가입</span></a></li>
 										</c:if>
-										<c:if test="${id != null }">
-											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
-										<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
-										</c:if>
+                                        
+                                        <c:if test="${id != null && id !=('admin')}">
+                                           <li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
+                                           <li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
+                                        </c:if>
+
+                                        <c:if test="${id != null && id ==('admin')}">
+                                            <li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
+                                            <li><a href="/admin/adminPage" ><span class="label">관리자</span></a></li>
+                                        </c:if>
+										
+	
 										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
 									</ul>
@@ -157,6 +166,7 @@
 						</div>
 					</div>
 
+				
 				<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
@@ -245,10 +255,9 @@
 								<footer id="footer">
 									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 								</footer>
-
 						</div>
 					</div>
-
+			
 			</div>
 
 		<!-- Scripts -->
