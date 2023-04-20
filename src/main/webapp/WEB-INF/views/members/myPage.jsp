@@ -9,13 +9,15 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>My Page</title>
-		<style type="text/css">
-		body{
+<head>
+<title>My Page</title>
+	
+<style type="text/css">
+body{
   padding: 0;
   margin: 0;
 }
+
 div{
   box-sizing: border-box;
 }
@@ -222,16 +224,17 @@ div{
 /*   background-color: #f8f8f8; */
 }
 		
-		</style>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/resources/assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
+</style>
 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="/resources/assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+	<body>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -250,9 +253,8 @@ div{
 											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
 											<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
 											<li><a href="#"><span class="label">판매하기</span></a></li>
-										</c:if>
-									
-										
+											<li><a href="#"><span class="label">내채팅</span></a></li>
+										</c:if>										
 									</ul>
 								</header>
 
@@ -327,12 +329,13 @@ div{
 					<%@ include file="../include/sidebar.jsp" %>
 			</div>
 
+
 		<!-- Scripts -->
 			<script src="/resources/assets/js/jquery.min.js"></script>
 			<script src="/resources/assets/js/skel.min.js"></script>
 			<script src="/resources/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/resources/assets/js/main.js"></script>
-
+		
 	</body>
 </html>

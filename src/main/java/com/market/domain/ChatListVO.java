@@ -13,4 +13,5 @@ public class ChatListVO {
 	private String chat_pic;
 	private String chat_profile;
 	private String chat_seller;
+	
 }

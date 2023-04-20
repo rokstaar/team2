@@ -45,8 +45,7 @@
                                             <li><a href="/admin/adminPage" ><span class="label">관리자</span></a></li>
                                         </c:if>
 										
-	
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="/chat" class="icon fa-instagram"> 내채팅<span class="label"></span></a></li>
 										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
 									</ul>
 								</header>
