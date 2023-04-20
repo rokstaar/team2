@@ -17,7 +17,7 @@ public class ProductDAOImpl implements ProductDAO{
 	private static final Logger logger = LoggerFactory.getLogger(ProductDAOImpl.class);
 	@Autowired
 	private SqlSession session;
-	private final String NAMESPACE = "com.itwillbs.mapper.ProductMapper";
+	private static final String NAMESPACE = "com.itwillbs.mapper.ProductMapper";
 
 	// 상품 리스트
 	@Override
@@ -30,6 +30,22 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public void likeProd(int product_num) {
 		session.update(NAMESPACE + ".likeProd", product_num);
+	}
+
+	@Override
+	public void likeProdCancel(int product_num) {
+		session.update(NAMESPACE + ".likeProdCancel", product_num);
+	}
+
+	@Override
+	public ProductVO getProdInfo(int product_num) {
+		logger.info("DAO - 상품 정보 가져오기");
+		return session.selectOne(NAMESPACE + ".getProdInfo", product_num);
+	}
+
+	@Override
+	public List<ProductVO> getRecProdList(String product_cate) {
+		return session.selectList(NAMESPACE + ".recProd", product_cate);
 	}
 	
 	
