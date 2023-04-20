@@ -305,26 +305,27 @@ div{
 						 <hr>
 						 
 					<div class="table-wrapper">
+						
+						
 							<table>
 									<tr>
-										<th>아이디</th>
-										<th>핸드폰번호</th>
-										<th>이름</th>
-										<th>닉네임</th>
-										<th>이메일</th>
-										<th>페이</th>
+										<th>판매 회원 아이디</th>
+										<th>상품 카테고리</th>
+										<th>상품 이름</th>
+										<th>상품 상세설명</th>
+										<th>상품 가격</th>
 									</tr>
 
-							<c:forEach var="mlist" items="${memberList}"> 
+                               <c:forEach var="plist" items="${productList}">
 									<tr>
-										<td>${mlist.member_id} </td>
-										<td>${mlist.member_phone} </td>
-										<td>${mlist.member_name} </td>
-										<td>${mlist.member_nickname} </td>
-										<td>${mlist.member_email} </td>
-										<td>${mlist.member_pay} </td>
-									</tr>
-					        </c:forEach>										
+										<td>${plist.product_seller} </td>
+										<td>${plist.product_cate}</td>
+										<td>${plist.product_title}</td>
+										<td>${plist.product_content}</td>
+										<td>${plist.product_price}</td>
+
+									</tr>	
+							</c:forEach>										
 					</table>
 				</div> 
 						 
