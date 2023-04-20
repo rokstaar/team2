@@ -210,7 +210,6 @@ div{
   color: 769fcd;
   font-weight: bold;
   border-bottom: solid 5px #769fcd;
-  border-right:  solid 5px #769fcd;
 } 
 
 /* .infoContainer .item > div:first-child{
@@ -303,7 +302,7 @@ div{
 									        </div>
 									      </div>     
 									      <div class="item">
-									      <a href="/members/tradeReview">  <div>
+									      <a href="/trade/review">  <div>
 									          <div class="text">거래후기</div>
 									          <div class="rightBlue number">3</div></a>
 									        </div>
@@ -319,12 +318,28 @@ div{
 									    <a href="/trade/buyReview" class="item">
 									      <div>구매후기</div>
 									    </a>    
+									   
 									
-									    <a href="#" class="item">
+									    <a href="/trade/sellReview" class="item">
 									      <div>판매후기</div>
 									    </a>    
 									  </div>	
-									
+										 <div>
+									    <c:forEach var="tBuyReview"  items="${tBuyReview }">
+											<tr>
+												<td>${tBuyReview.t_num }</td>
+												<td>
+												  	 ${tBuyReview.sell_mem_id }
+												</td>
+												<td>${tBuyReview.prod_num }</td>
+												<td>${tBuyReview.prod_sell_date }</td>
+												<td>
+													<span class="badge bg-yellow">
+														${tBuyReview.t_div }구매
+													</span>
+												</td>
+											</tr>
+										</c:forEach></div>
 									</div>
 								</section>
 
