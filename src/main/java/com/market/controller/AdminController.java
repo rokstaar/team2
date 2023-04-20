@@ -15,17 +15,12 @@ public class AdminController {
 	private static final Logger logger 
 	             = LoggerFactory.getLogger(AdminController.class);
 	
-	// http://localhost:8080/admin/mypage
-	@RequestMapping(value = "mypage",method = RequestMethod.GET)
-	public String mypageGET() {
-		return "/admin/myPage";
+	// http://localhost:8080/admin/adminPage
+	@RequestMapping(value = "adminPage",method = RequestMethod.GET)
+	public void adminPageGET() {
 	}
 	
-	// http://localhost:8080/admin/notice
-	@RequestMapping(value = "notice",method = RequestMethod.GET)
-	public void noticeGET() {
-
-	}
+	
 	
 	
 	
