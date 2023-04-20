@@ -17,5 +17,6 @@ public class ProductVO {
 	private int product_readcount;
 	private Date product_date;
 	private String product_status;
+	private String product_grade;
 	private int product_favorite;
 }

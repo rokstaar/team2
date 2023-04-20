@@ -19,10 +19,11 @@
 				<th>제목</th>
 				<th>내용</th>
 				<th>가격</th>
+				<th>상품상태</th>
 				<th>사진</th>
 				<th>조회수</th>
 				<th>등록일자</th>
-				<th>상품상태</th>
+				<th>판매상황</th>
 				<th>좋아요</th>
 			</tr>
 		</thead>
@@ -35,6 +36,7 @@
 			<td>${list.product_title }</td>
 			<td>${list.product_content }</td>
 			<td>${list.product_price }</td>
+			<td>${list.product_grade }</td>
 			<td>${list.product_pic }</td>
 			<td>${list.product_readcount }</td>
 			<td>${list.product_date }</td>
@@ -48,10 +50,14 @@
 	<a href="/product/prodList?category=가전제품&sort=price_asc">누르시오</a>
 	
 	<button type="button" onclick="likeit(1);">누르면 찜</button>
+	<button type="button" onclick="likecancel(1);">찜 취소하기</button>
+	
+	<a href="/product/prodInfo?product_num=1">상세 페이지 가기</a>
 	
 	<script src="https://code.jquery.com/jquery-3.6.4.js" 
 	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 	<script>
+	// 찜하기,취소 나중에 click 익명 함수로
 	function likeit(pnum){
 		$.ajax({
 			type: "GET",
@@ -64,7 +70,22 @@
 			error: function(req, stat, error){
 				var obj = $('#'+pnum);
 				obj.html(Number(obj.html())+1);
-				alert(stat + " - " + error + " [에러 발생]" + req);
+			}
+		});
+	}
+	
+	function likecancel(pnum){
+		$.ajax({
+			type: "GET",
+			url: "/product/likeProdCancel",
+			dataType: "text",
+			data: {product_num : pnum},
+			success: function(response){
+				console.log("찜 목록");
+			},
+			error: function(req, stat, error){
+				var obj = $('#'+pnum);
+				obj.html(Number(obj.html())-1);
 			}
 		});
 	}

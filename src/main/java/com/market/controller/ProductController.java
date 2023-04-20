@@ -47,4 +47,30 @@ public class ProductController {
 		service.likeProd(pnum);
 	}
 	// 상품 찜하기
+	
+	// 상품 찜취소하기
+	@GetMapping(value = "/likeProdCancel")
+	public void likeProdCancel(@RequestParam(value = "product_num") int pnum) {
+		service.likeProdCancel(pnum);
+	}
+	// 상품 찜취소하기
+	
+	// 상품 정보 가져오기
+	@GetMapping(value = "/prodInfo")
+	public void getProdInfo(@RequestParam(value = "product_num") int pnum
+			, Model model) {
+		logger.info("상품 정보 가져오기!");
+		model.addAttribute(service.getProdInfo(pnum));
+	}
+	// 상품 정보 가져오기
+	
+	// 같은 종류의 추천 상품 가져오기
+	@PostMapping(value = "/recProd")
+	@ResponseBody
+	public List<ProductVO> recProd(@RequestParam(value = "category") String category
+			, Model model) {
+		logger.info("추천 상품 가져오기 : {}", service.getRecProdList(category));
+		return service.getRecProdList(category);
+	}
+	// 같은 종류의 추천 상품 가져오기
 }

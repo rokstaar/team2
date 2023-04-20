@@ -15,4 +15,13 @@ public interface ProductDAO {
 	
 	// 찜하기
 	public void likeProd(int pnum);
+	
+	// 찜취소
+	public void likeProdCancel(int pnum);
+	
+	// 상품 세부정보
+	public ProductVO getProdInfo(int product_num);
+	
+	// 같은 종류의 상품 추천
+	public List<ProductVO> getRecProdList(String product_cate);
 }
