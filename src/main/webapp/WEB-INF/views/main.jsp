@@ -38,6 +38,8 @@
                                         <c:if test="${id != null && id !=('admin')}">
                                            <li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
                                            <li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
+                                            <li><a href="/chat" ><span class="label">내채팅</span></a></li>
+										  <!--  <li><a href="/chat" class="icon fa-instagram"> 내채팅<span class="label"></span></a></li> -->
                                         </c:if>
 
                                         <c:if test="${id != null && id ==('admin')}">
@@ -45,8 +47,7 @@
                                             <li><a href="/admin/adminPage" ><span class="label">관리자</span></a></li>
                                         </c:if>
 										
-										<li><a href="/chat" class="icon fa-instagram"> 내채팅<span class="label"></span></a></li>
-										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
+
 									</ul>
 								</header>
 
@@ -64,8 +65,9 @@
 										</ul>
 									</div>
 									<span class="image object">
-										<img src="resources/images/pic10.jpg" alt="" />
+										<img src="/resources/images/animation_smart.gif" alt="" />
 									</span>
+			
 								</section>
 
 							<!-- Section -->
@@ -180,10 +182,10 @@
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
-										<h2>Menu</h2>
+										<h2>카테고리</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
+										<li><a href="index.html">여성의류</a></li>
 										<li><a href="generic.html">Generic</a></li>
 										<li><a href="elements.html">Elements</a></li>
 										<li>

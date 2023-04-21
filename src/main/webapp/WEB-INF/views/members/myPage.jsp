@@ -253,7 +253,7 @@ div{
 											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
 											<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
 											<li><a href="#"><span class="label">판매하기</span></a></li>
-											<li><a href="#"><span class="label">내채팅</span></a></li>
+											<li><a href="/chat"><span class="label">내채팅</span></a></li>
 										</c:if>										
 									</ul>
 								</header>

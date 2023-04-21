@@ -14,10 +14,10 @@
 
 								<nav id="menu">
 									<header class="major">
-										<h2>Menu</h2>
+										<h2>카테고리</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
+										<li><a href="index.html">여성의류</a></li>
 										<li><a href="generic.html">Generic</a></li>
 										<li><a href="elements.html">Elements</a></li>
 										<li>
