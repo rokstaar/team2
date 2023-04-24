@@ -54,9 +54,11 @@
 	<!-- 찜취소 -->
 	
 	<!-- 상품 세부정보 -->
-	<select id="getProdInfo" resultType="ProductVO">
-		SELECT * FROM PRODUCT
-		WHERE PRODUCT_NUM = #{PRODUCT_NUM}
+	<select id="getProdInfo" resultType="hashMap">
+		select p.*, m.*
+		from product p join member m
+		on p.product_seller = m.member_id
+		where product_num = #{product_num};
 	</select>
 	<!-- 상품 세부정보 -->
 	

@@ -20,7 +20,7 @@ public interface ProductDAO {
 	public void likeProdCancel(int pnum);
 	
 	// 상품 세부정보
-	public ProductVO getProdInfo(int product_num);
+	public Map<String, Object> getProdInfo(int product_num);
 	
 	// 같은 종류의 상품 추천
 	public List<ProductVO> getRecProdList(String product_cate);

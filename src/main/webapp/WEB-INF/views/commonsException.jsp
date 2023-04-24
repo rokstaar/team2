@@ -10,6 +10,6 @@
 <body>
 	<h1>Exception</h1>
 	
-	
+	<pre>${requestScope['javax.servlet.error.exception']}</pre>
 </body>
 </html>

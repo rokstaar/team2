@@ -2,6 +2,8 @@ package com.market.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -32,13 +35,13 @@ public class ProductController {
 	
 	// 상품 리스트
 	@GetMapping(value = "/prodList")
-	public String getProdList(@RequestParam(value = "sort", defaultValue="") String sort, 
-			@RequestParam(value = "status", required = false) String status,
-			@RequestParam(value = "category", required = false) String category,
-			@RequestParam(value = "title", required = false) String title,
-			Model model){
+	public String getProdList(@RequestParam(value = "sort", defaultValue="") String sort,
+							@RequestParam(value = "grade", required = false) String grade,
+							@RequestParam(value = "category", required = false) String category,
+							@RequestParam(value = "title", required = false) String title,
+							Model model){
 		logger.info("상품 페이지 호출 {}", sort);
-		List<ProductVO> list = service.getProdList(status, category, title, sort);
+		List<ProductVO> list = service.getProdList(grade, category, title, sort);
 		model.addAttribute("prodList", list);
 		
 		return "/product/prodList";
@@ -64,8 +67,8 @@ public class ProductController {
 	public void getProdInfo(@ModelAttribute(value = "product_num") int pnum
 							,@ModelAttribute(value = "seller") String name
 							, Model model) {
-		logger.info("상품 정보 가져오기!");
-		model.addAttribute(service.getProdInfo(pnum));
+		logger.info("상품 정보 가져오기! {}", service.getProdInfo(pnum));
+		model.addAttribute("info", service.getProdInfo(pnum));
 		model.addAttribute("score", service.getScore(name));
 	}
 	// 상품 정보 가져오기
@@ -92,10 +95,12 @@ public class ProductController {
 	// 상품 등록 후 해당 페이지
 	@PostMapping(value = "/regProduct")
 	public String regProduct(ProductVO productVO 
-							,MultipartHttpServletRequest request
-							,RedirectAttributes rttr) {
+							,@RequestParam("product_pics") MultipartFile[] file
+							,HttpServletRequest request
+							,RedirectAttributes rttr) throws Exception {
+		logger.info("Controller - 상품 등록 실행!");
 		logger.info(productVO.toString());
-		service.regProduct(productVO);
+		service.regProduct(productVO, file, request);
 		
 		rttr.addFlashAttribute("product_num", productVO.getProduct_num());
 		rttr.addFlashAttribute("seller", productVO.getProduct_seller());

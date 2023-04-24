@@ -1,6 +1,11 @@
 package com.market.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.market.domain.ProductVO;
 
@@ -16,7 +21,7 @@ public interface ProductService {
 	public void likeProdCancel(int pnum);
 	
 	// 해당 상품 정보 가져오기
-	public ProductVO getProdInfo(int pnum);
+	public Map<String, Object> getProdInfo(int pnum);
 	
 	// 같은 카테고리의 상품 상위 8개 무작위 추출
 	public List<ProductVO> getRecProdList(String category);
@@ -25,5 +30,5 @@ public interface ProductService {
 	public double getScore(String name);
 	
 	// 상품정보 등록하기
-	public void regProduct(ProductVO vo);
+	public void regProduct(ProductVO vo, MultipartFile[] files, HttpServletRequest request) throws Exception;
 }

@@ -113,8 +113,13 @@
 								event.stopPropagation();
 
 							// Toggle.
-								$sidebar.toggleClass('inactive');
-
+								if ($sidebar.hasClass('force-inactive')) {
+								      // Remove 'force-inactive' class.
+								      $sidebar.removeClass('force-inactive');
+								    } else {
+								      // Toggle 'inactive' class.
+								      $sidebar.toggleClass('inactive');
+								    }
 						});
 
 				}

@@ -17,6 +17,11 @@
 		<link rel="stylesheet" href="resources/assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<style>
+			#sidebar.force-inactive{
+				margin-left: -24em;
+			}
+		</style>
 	</head>
 	<body>
 
@@ -170,7 +175,7 @@
 
 				
 				<!-- Sidebar -->
-					<div id="sidebar">
+					<div id="sidebar" class="inactive force-inactive">
 						<div class="inner">
 
 							<!-- Search -->

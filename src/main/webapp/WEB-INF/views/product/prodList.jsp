@@ -24,6 +24,42 @@
 <body>
 	<h1>상품 페이지</h1>
 	
+	<form>
+		<select name="sort" id="sort-select">
+			<option value="" hidden>===정렬===</option>
+			<option value="">전체</option>
+			<option value="price_asc">가격 낮은 순</option>
+			<option value="price_desc">가격 높은 순</option>
+			<option value="date_asc">최근일자 순</option>
+			<option value="date_desc">예전일자 순</option>
+		</select>
+		<select name="grade" id="grade-select">
+			<option value="" hidden>==상품상태==</option>
+			<option value="">전체</option>
+			<option value="상">상</option>
+			<option value="중">중</option>
+			<option value="하">하</option>
+		</select>
+		<select name="category" id="category-select">
+			<option value="" hidden>====분류====</option>
+			<option value="">전체</option>
+			<option value="cloth">의류</option>
+			<option value="homeapp">가전제품</option>
+			<option value="furniture">식기,가구</option>
+			<option value="elec">디지털,전자기기</option>
+			<option value="food">식품,생필품</option>
+			<option value="sport">스포츠,건강</option>
+			<option value="mecha">기기,공구</option>
+			<option value="book">도서,쿠폰</option>
+			<option value="kid">유아</option>
+			<option value="pet">애완동물</option>
+			<option value="etc">기타</option>
+		</select>
+		<input type="text" name="title">
+		<input type="submit" value="검색하기">
+	</form>
+	
+	
 	<table>
 		<thead>
 			<tr>
@@ -64,19 +100,20 @@
 			<td id="${list.product_num }">${list.product_favorite }</td>
 		</tr>
 		
-		<form id="prodRegForm" action="/product/prodReg" method="POST">
-			<input type="hidden" name="product_num" value="${list.product_num}">
-			<input type="hidden" name="id" value="${list.product_seller }">
-			<button type="button" class="custom-button" id="register">해당 유저로 상품 등록 페이지 가기</button>
-		</form>
 	</c:forEach>
 		</tbody>
 	</table>
 	
+		<form id="prodRegForm" action="/product/prodReg" method="POST">
+			<input type="hidden" name="product_num" value="1">
+			<input type="hidden" name="id" value="itwill">
+			<button type="button" class="custom-button" id="register">1번 유저로 상품 등록 페이지 가기</button>
+		</form>
 	
 
+	<br>
 	
-	<a href="/product/prodList?category=가전제품&sort=price_asc">누르시오</a>
+	
 	
 	<button type="button" onclick="likeit(1);">누르면 찜</button>
 	<button type="button" onclick="likecancel(1);">찜 취소하기</button>
@@ -90,6 +127,26 @@
 		$('#prodRegForm').submit();
 	});
 
+	
+	$(document).ready(function() {
+	    const urlParams = new URLSearchParams(window.location.search);
+	    const sortValue = urlParams.get('sort');
+	    const gradeValue = urlParams.get('grade');
+	    const categoryValue = urlParams.get('category');
+
+	    if (sortValue) {
+	    	$('#sort-select').val(sortValue);
+	    }
+	    if (gradeValue) {
+	    	$('#grade-select').val(gradeValue);
+	    }
+	    if (categoryValue) {
+	    	$('#category-select').val(categoryValue);
+	    }
+	});
+
+	
+	
 	
 	// 찜하기,취소 나중에 click 익명 함수로
 	function likeit(pnum){
