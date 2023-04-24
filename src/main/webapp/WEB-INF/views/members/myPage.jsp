@@ -270,12 +270,12 @@ div{
 									          <div class="rightBlue number">6</div>
 									        </div>
 									      </div>     
-									      <div class="item">
+									       <div class="item">
 									        <div>
-									          <div class="text">거래내역</div>
-									          <div class="rightBlue number">6</div>
+									        <a href="/trade/buyList" > <div class="text">거래내역</div>
+									          <div class="rightBlue number">6</div></a>
 									        </div>
-									      </div>     
+									      </div>      
 									      <div class="item">
 									        <div>
 									          <div class="text">경매내역</div>
@@ -289,11 +289,11 @@ div{
 									        </div>
 									      </div>     
 									      <div class="item">
-									      <a href="/trade/review" >  <div>
+									      <a href="/trade/review">  <div>
 									          <div class="text">거래후기</div>
 									          <div class="rightBlue number">3</div></a>
 									        </div>
-									      </div>     
+									      </div>        
 									      
 									    </div>
 
@@ -313,16 +313,10 @@ div{
 						</div>
 					</div>
 
-					<%-- <%@ include file="../include/sidebar.jsp" %> --%>
+					<%@ include file="../include/sidebar.jsp" %>
 			</div>
 
 
-		<!-- Scripts -->
-			<script src="/resources/assets/js/jquery.min.js"></script>
-			<script src="/resources/assets/js/skel.min.js"></script>
-			<script src="/resources/assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="/resources/assets/js/main.js"></script>
 		
 	</body>
 </html>

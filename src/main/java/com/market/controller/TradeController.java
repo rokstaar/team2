@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.market.domain.MemberVO;
 import com.market.domain.TradeVO;
 import com.market.service.TradeService;
 
@@ -32,16 +34,26 @@ public class TradeController {
 	
 	@RequestMapping(value = "/review", method = RequestMethod.GET) 
 	public String tradeReview(Model model,HttpSession session) throws Exception {
+		
 		String id = (String)session.getAttribute("id");
 		
 		List<TradeVO> tBuyReview = service.getBuyReview();
+
+		logger.info("@@@@@@@@@@"+tBuyReview);
+		logger.info("@@@@@@@@@@"+id);
 		model.addAttribute("tBuyReview",tBuyReview);	
 		
-		return "/trade/tradeReview";
+//		if(id == vo.getBuy_mem_id()) {
+			
+			return "/trade/tradeReview";
+//		}else {
+//			return "redirect:/members/login";
+//			
+//		}
 	}
 	
 	@RequestMapping(value = "/buyReview", method = RequestMethod.GET)
-	public String buyReview(Model model) throws Exception {
+	public String buyReview() throws Exception {
 		
 		
 		return "/trade/buyReview";
@@ -80,5 +92,17 @@ public class TradeController {
 		
 		
 	}
+	
+	
+	@RequestMapping(value = "/reviewInsert", method = RequestMethod.POST)
+	public String reviewWritePOST() throws Exception{
 
+		
+			
+		return "/trade/tradeReview";
+	}
+
+	
+	
+	
 }
