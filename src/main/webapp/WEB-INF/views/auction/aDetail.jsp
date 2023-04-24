@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -19,9 +20,61 @@
 		<link rel="stylesheet" href="/resources/assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				var timer; 
+				
+				function setTimer(){
+					var now = new Date();
+					var endDate = new Date($('#endDate').val());
+					var distance = endDate - now.getTime();
+					
+					var second = 1000;
+				    var minute = second * 60;
+				    var hour = minute * 60;
+				    var day = hour * 24;
+				    
+				    var days = Math.floor(distance / day);
+			        var hours = Math.floor((distance % day) / hour);
+			        var minutes = Math.floor((distance % hour) / minute);
+			        var seconds = Math.floor((distance % minute) / second);
+			        
+			        $("#time").html("남은 시간 : " + days + "일 " + hours +":" + minutes + ":"+seconds);
+			        
+			        if (distance < 0){
+						alert('종료된 경매');
+						clearInterval(timer);
+						$.ajax({
+							url:'/auction/endDate',
+							type:'GET',
+							data:{
+								num : '${vo.au_num}'
+							}
+						});
+						$("#time").html("경매 종료");
+						/* location.href='/auction/list'; */
+					}
+			    }
+				timer = setInterval(setTimer, 1000);
+				
+				$('#bid').click(function(){
+					$.ajax({
+						url:'/auction/bid',
+						data:{
+							au_num:'${vo.au_num}',
+							au_num:'${vo.au_num}',
+							au_num:'${vo.au_num}',
+							au_num:'${vo.au_num}',
+							au_num:'${vo.au_num}',
+							au_num:'${vo.au_num}',
+						}
+						
+					});
+				});
+				
+				
+				
 				
 			});
 			
@@ -56,41 +109,47 @@
 								<section id="banner">
 									<div class="content">
 										<header>
-											<h1>HOT<br/>
-											${best.au_title }</h1>
-											<p>기간 : ${best.au_endTime }<br>
-											시작가 : ${best.au_startPrice }<br>
-											현재 입찰금 : ${best.au_bidPrice }<br>
-											즉시 구매가 : ${best.au_endPrice }<br>
-											판매자 : ${best.au_sellerId } </p>
+										<f:parseDate value="${vo.au_endTime}" var="format" pattern="yyyy-MM-dd HH:mm:ss"/>
+										<f:formatDate var="endTime" value="${format}" pattern="yyyy-MM-dd HH:mm:ss"/>
+										<input type="hidden" value="${endTime }" id="endDate">
+										<f:formatNumber value="${pay }" type="currency" var="pay"/>
+										<f:formatNumber value="${vo.au_startPrice }" type="currency" var="startPrice"/>
+										<f:formatNumber value="${vo.au_endPrice }" type="currency" var="endPrice"/>
+										<f:formatNumber value="${vo.au_bidPrice }" type="currency" var="bidPrice"/>
+											<h1>${vo.au_title }<br/></h1>
+											<p>
+											판매자 : ${vo.au_sellerId }<br>
+											시작가 : ${startPrice }<br>
+											즉시 구매가 : ${endPrice }<br>
+											</p> 
+											<p class="button" id="time"></p>
+											<p class="button">현재 입찰금 : ${bidPrice }</p><br>
+											
+											
+											
 										</header>
-										<ul class="actions">
-											<li><a href="/auction/aDetail?au_num=${best.au_num }" class="button">입찰하기</a></li>
-										</ul>
+										<form action="">
+											<ul class="actions">
+											<c:if test="${id != null }">
+												<li><p class="button">${id }님의 보유금액 : ${pay }</p></li>
+											</c:if>
+												<hr>
+												<li><input type="text" name="au_bidPrice" placeholder="입찰할 금액 입력"></li>
+												<li><a class="button" id="bid">입찰하기</a></li>
+												<!-- <li><a href="" class="button">최소입찰</a></li> -->
+												<li><a class="button">즉시구매하기</a></li>
+											</ul>
+										</form>
 									</div>
 									<span class="image object">
-										<img src="/resources/images/air.jpg" style="width:644.7px; height:438.4px" />
+										<img src="/resources/images/${vo.au_pic.split(',')[1] }" style="width:644.7px; height:438.4px" />
 									</span>
 								</section>
 
 							<!-- Section -->
 								<section>
-									<header class="major">
-										<h2>Erat lacinia</h2>
-									</header>
-									<div class="features">
-									<c:forEach items="${aList }" var="aList">
-										<article>
-											<span><img src="/resources/images/${aList.au_pic.split(',')[1] }" style="width:173.3px; height:173.3" /></span>
-											<div class="content">
-												<h3>${aList.au_title }</h3>
-												<p>현재 입찰가 : ${aList.au_bidPrice }<br>
-												판매자 : ${aList.au_sellerId }<br>
-												종료시간 : ${aList.au_endTime }<br>
-												<a href="/auction/aDetail?au_num=${aList.au_num }" class="button">입찰하기</a></p>
-											</div>
-										</article>
-									</c:forEach>
+									<div class="col-12">
+										<textarea name="au_content" id="au_content" rows="6" style="width:100%" readonly="readonly">${vo.au_content }</textarea>
 									</div>
 								</section>
 
