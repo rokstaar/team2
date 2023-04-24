@@ -5,7 +5,11 @@
   
 <mapper namespace="com.market.mapper.tradeMapper">
 
-
+	<insert id="createReview" >
+		insert into review 
+		values(#{rv_num},#{reviewee},#{reviewer},#{rv_score},#{rv_content});
+	
+	</insert>
 
 	<select id="getBuyReview" resultType="com.market.domain.TradeVO">
 		<![CDATA[
@@ -21,23 +25,25 @@
 		]]>
 	</select>
 	
-	<!-- <select id="getBuyReview" resultType="com.market.domain.TradeVO">
-		select *
-		from trade
-		where buy_mem_id = #{buy_mem_id} and t_div = 1;
-		
-	</select> -->
+	<select id="buyList" resultType="map">
+		select t.t_num, t.buy_mem_id,t.sell_mem_id,t.t_div,t.type_div,p.product_title,t.prod_num,
+		p.product_price, p.product_pic,p.product_cate,m.member_nickname
+		from trade t
+		 join product p on t.sell_mem_id = p.product_seller
+         and t.prod_num = p.product_num 
+		 join member m on t.buy_mem_id = m.member_id
+		where t.buy_mem_id = m.member_id and t.t_div = 1;
+	</select>
 	
-<!-- 	<select id="getBuyReview" resultType="com.market.domain.TradeVO">
-		
-		select t.t_num, t.buy_mem_id, t.sell_mem_id, t.prod_num, t.prod_sell_date, t.t_div,
-		 t.type_div, t.trade_review, m.member_id   
-		from trade t join member m   
-		on t.buy_mem_id = m.member_id   
-		where t.buy_mem_id = #{m.member_id} and t_div = 1   
-		order by t.t_num desc;
+	<select id="prodList" resultType="map">
+		select t.t_num, t.buy_mem_id,t.sell_mem_id,t.t_div,t.type_div,p.product_title,t.prod_num,
+		p.product_price,p.product_pic,p.product_cate,m.member_nickname
+		from trade t
+		 join product p on t.sell_mem_id = p.product_seller
+         and t.prod_num = p.product_num
+		 join member m on t.buy_mem_id = m.member_id
+		where t.buy_mem_id = m.member_id and t.t_div = 2;
 	
 	</select>
-	 -->
 
 </mapper>

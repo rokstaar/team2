@@ -245,145 +245,15 @@ div{
 
 							<!-- Header -->
 								<%@ include file="../include/header.jsp" %>
-
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-									<div class="wrap">
-									  <div class="shippingStatusContainer">
-									    <div class="status">
-									      
-									      <div class="item">
-									        <div>
-									        <img alt="프로필사진" src="/resources/img/soul.jpg" width="150px" height="100px" >
-									       </div>
-									      	
-									        <div>
-									          <div class="text">관리자</div>
-									       	   <div class="text">페이 : 50,000원</div>
-									         <a href="#"><div class="memberUpdate">회원정보수정</div></a>
-									        </div>
-									      </div>
-									      
-									      <div class="item">
-									      <a href="/trade/review" >  <div>
-									          <div class="text">거래내역</div>
-									          <div class="rightBlue number">3</div></a>
-									        </div>
-									      </div>   
-									       <div class="item">
-									        <div>
-									        <a href="/trade/buyList" >  <div class="text">구매내역</div>
-									          <div class="rightBlue number">6</div></a>
-									        </div>
-									      </div>       
-									      <div class="item">
-									        <div>
-									          <div class="text">경매내역</div>
-									          <div class="rightBlue number">0</div>
-									        </div>
-									      </div>     
-									      <div class="item">
-									        <div>
-									          <div class="text">찜한상품</div>
-									          <div class="rightBlue number">1</div>
-									        </div>
-									      </div>     
-									      <div class="item">
-									      <a href="/trade/review">  <div>
-									          <div class="text">거래후기</div>
-									          <div class="rightBlue number">3</div></a>
-									        </div>
-									      </div>     
-									      
-									    </div>
-
-													    
-									  </div>  
-									</div>	
-									 
-									 <div class="infoContainer">
-									    <a href="/trade/buyReview" class="item">
-									      <div>구매내역</div>
-									    </a>    
-									   
+								<%@ include file="../include/mypageReview.jsp" %>
+							
+									<div class="shippingStatusContainer">
 									
-									    <a href="/trade/sellReview" class="item">
-									      <div>판매내역</div>
-									    </a>    
-									  </div>	
-									  <!-- saddddddddddddddddddddddddddddd -->
-									   <div class="shippingStatusContainer">
-									  <div class="status">
-									      
-									      <div class="item">
-									        <div>
-									        <img alt="프로필사진" src="/resources/img/soul.jpg" width="150px" height="100px">
-									       </div>
-									      	
-									        <div>
-									          <div class="text">관리자</div>
-									       	   <div class="text">페이 : 50,000원</div>
-									        </div>
-									      </div>
-									      
-									      <div class="item">
-									        <div>
-									          <div class="text">상품번호</div>
-									          <div class="rightBlue number">6</div>
-									        </div>
-									      </div>     
-									      <div class="item">
-									        <div>
-									          <div class="text">상품이름</div>
-									          <div class="rightBlue number">1</div>
-									        </div>
-									      </div>     
-									      <div class="item">
-									        <div>
-									          <div class="text">구매자</div>
-									          <div class="rightBlue number">6</div>
-									        </div>
-									      </div>     
-									      <div class="item">
-									        <div>
-									          <div class="text">판매번호</div>
-									          <div class="rightBlue number">0</div>
-									        </div>
-									      </div>     
-									      <div class="item">
-									        <div>
-									          <div class="text">판매</div>
-									          <div class="rightBlue number">1</div>
-									        </div>
-									      <div class="item">
-									      <a href="/trade/review">  
-									          <div class="text">거래후기</div>
-									          <div class="rightBlue number"></a></div>
-									        </div>
-									      </div>     
-									      
-									    </div>
-									    </div>
-										 <div>
-											<tr>	
-									    <c:forEach var="tSellReview"  items="${tSellReview }">
-											<tr>
-												<td>${tSellReview.t_num }</td>
-												<td>
-												  	 ${tSellReview.sell_mem_id }
-												</td>
-												<td>${tSellReview.prod_num }</td>
-												<td>${tSellReview.prod_sell_date }</td>
-												<td>
-													<span class="badge bg-yellow">
-													</span>
-												</td>
-											</tr>
-										</c:forEach></div>
+									
+									
 									</div>
-								</section>
-
+									
+	
 						</div>
 					</div>
 

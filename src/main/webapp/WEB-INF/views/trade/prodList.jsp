@@ -246,7 +246,7 @@ div{
 							<!-- Header -->
 								<%@ include file="../include/header.jsp" %>
 								<%@ include file="../include/mypageTrade.jsp" %>
-							
+								
 										<div class="shippingStatusContainer">
 										
 										<c:forEach var="vo" items="${prodList }">
@@ -254,7 +254,7 @@ div{
 										
 										<div class="item">
 									        <div>
-									          <div>${vo.product_pic }</div>
+									          <img src="/resources/images/${vo.product_pic.split(',')[0] }">
 									        </div>
 									        </div>
 										<div class="item">

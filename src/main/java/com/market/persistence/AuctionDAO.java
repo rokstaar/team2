@@ -9,6 +9,12 @@ public interface AuctionDAO {
 	
 	public AuctionVO nowBest() throws Exception;
 	
-	public Integer registerAuction() throws Exception;
+	public Integer registerAuction(AuctionVO vo) throws Exception;
+	
+	public AuctionVO getADetail(AuctionVO vo) throws Exception;
+	
+	public Integer getMPay(String id) throws Exception;
+	
+	public void updateStatus(Integer au_num) throws Exception;
 
 }
