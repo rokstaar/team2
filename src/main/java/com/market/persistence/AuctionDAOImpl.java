@@ -28,9 +28,30 @@ public class AuctionDAOImpl implements AuctionDAO{
 	}
 
 	@Override
-	public Integer registerAuction() throws Exception {
-		return null;
+	public Integer registerAuction(AuctionVO vo) throws Exception {
+		return sqlSession.insert(NAMESPACE+".registAuction", vo);
 	}
+
+	@Override
+	public AuctionVO getADetail(AuctionVO vo) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+".getADetail", vo);
+	}
+
+	@Override
+	public Integer getMPay(String id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+".getMPay", id);
+	}
+
+	@Override
+	public void updateStatus(Integer au_num) throws Exception {
+		sqlSession.update(NAMESPACE+".updateStatus", au_num);
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	

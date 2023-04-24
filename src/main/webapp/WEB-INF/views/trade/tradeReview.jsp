@@ -265,18 +265,19 @@ div{
 									        </div>
 									      </div>
 									      
-									    <div class="item">
-									      <a href="/trade/review" >  <div>
+									      <div class="item">
+									       <div>
+									      <a href="/trade/review" > 
 									          <div class="text">거래내역</div>
 									          <div class="rightBlue number">3</div></a>
 									        </div>
 									      </div>      
-									       <div class="item">
+									      <div class="item">
 									        <div>
-									        <a href="/trade/buyList" >  <div class="text">구매내역</div>
+									        <a href="/trade/buyList" > <div class="text">거래내역</div>
 									          <div class="rightBlue number">6</div></a>
 									        </div>
-									      </div>        
+									      </div>     
 									      <div class="item">
 									        <div>
 									          <div class="text">경매내역</div>
@@ -290,47 +291,29 @@ div{
 									        </div>
 									      </div>     
 									      <div class="item">
-									      <a href="#">  <div>
+									     <a href="/trade/review">  <div>
 									          <div class="text">거래후기</div>
 									          <div class="rightBlue number">3</div></a>
 									        </div>
 									      </div>     
 									      
 									    </div>
-
+								
 													    
 									  </div>  
 									</div>	
-									 
+								
 									 <div class="infoContainer">
 									    <a href="/trade/buyReview" class="item">
-									      <div>구매내역</div>
+									      <div>구매후기</div>
 									    </a>    
+									  
 									   
-									
 									    <a href="/trade/sellReview" class="item">
-									      <div>판매내역</div>
+									      <div>판매후기</div>
 									    </a>    
 									  </div>	
-										 <div>
-									    <c:forEach var="tBuyReview"  items="${tBuyReview }">
-											<tr>
-											
-												<td>${tBuyReview.t_num }</td>
-												<td>
-												  	 ${tBuyReview.sell_mem_id }
-												</td>
-												<td>${tBuyReview.prod_num }</td>
-												<td>${tBuyReview.prod_sell_date }</td>
-												<td>
-													<span class="badge bg-yellow">
-														${tBuyReview.t_div }구매
-													</span>
-												</td>
-											</tr>
-										</c:forEach></div>
-									</div>
-								</section>
+									  </section>
 
 						</div>
 					</div>

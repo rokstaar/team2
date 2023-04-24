@@ -245,13 +245,42 @@ div{
 
 							<!-- Header -->
 								<%@ include file="../include/header.jsp" %>
-								<%@ include file="../include/mypageTrade.jsp" %>
+								<%@ include file="../include/mypageReview.jsp" %>
 							
-									<div class="shippingStatusContainer">
-									
-									
-									
+										<div class="shippingStatusContainer">
+								
+									<div class="infoContainer">
+										
+										<div class="item">
+									        <div>
+									        <img src="/resources/images/${vo.product_pic.split(',')[0] }">
+									          <%-- <div>${vo.product_pic }</div> --%>
+									        </div>
+									        </div>
+										<div class="item">
+									        <div>
+									          <div>${vo.product_cate }</div>
+									        </div>
+									        </div>
+										<div class="item">
+									        <div>
+									          <div>${vo.product_title }</div>
+									          <div>${vo.product_price }</div>
+									        </div>
+									        </div>
+										<div class="item">
+									        <div>
+									          <div>${vo.sell_mem_id }</div>
+									        </div>
+									        </div>
+										<div class="item">
+									        <div>
+									        </div>
+									        </div>
+									        
+										</div>
 									</div>
+									
 									
 	
 						</div>
