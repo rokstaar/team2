@@ -64,15 +64,15 @@
 			<td id="${list.product_num }">${list.product_favorite }</td>
 		</tr>
 		
-		<form id="prodRegForm" action="/product/prodReg" method="POST">
-			<input type="hidden" name="product_num" value="${list.product_num}">
-			<input type="hidden" name="id" value="${list.product_seller }">
-			<button type="button" class="custom-button" id="register">해당 유저로 상품 등록 페이지 가기</button>
-		</form>
 	</c:forEach>
 		</tbody>
 	</table>
 	
+		<form id="prodRegForm" action="/product/prodReg" method="POST">
+			<input type="hidden" name="product_num" value="1">
+			<input type="hidden" name="id" value="itwill">
+			<button type="button" class="custom-button" id="register">1번 유저로 상품 등록 페이지 가기</button>
+		</form>
 	
 
 	

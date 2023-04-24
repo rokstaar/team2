@@ -10,7 +10,7 @@
 	<h1>상품 등록</h1>
 	<form action="/product/regProduct" method="post" enctype="multipart/form-data">
 		<input type="text" name="product_num" value="${product_num}">
-		<input type="hidden" name="product_seller" value="${id }">
+		<input type="text" name="product_seller" value="${id }">
 		분류
 		<select name="product_cate">
 			<option value="cloth">의류</option>
@@ -32,7 +32,13 @@
 		<input type="radio" name="product_grade" value="상">상
 		<input type="radio" name="product_grade" value="중">중
 		<input type="radio" name="product_grade" value="하">하<br>
-		제품사진<input type="file" multiple="multiple" name="product_pic"><br>
+		
+		<div id="file-inputs-container">
+			<div class="file-input-wrapper">
+				제품사진<input type="file" name="product_pics">
+				<button type="button" class="add-button">+</button>
+			</div>
+		</div>
 		
 		<input type="submit" value="등록하기">
 	</form>
@@ -40,7 +46,33 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	
-	
+	document.addEventListener('DOMContentLoaded', function () {
+		let fileInputCounter = 1;
+
+		document.querySelector('#file-inputs-container').addEventListener('click', function (event) {
+			if (event.target.classList.contains('add-button') && fileInputCounter < 3) {
+				const newFileInputWrapper = document.createElement('div');
+		  		newFileInputWrapper.classList.add('file-input-wrapper');
+
+	    		const newFileInput = document.createElement('input');
+		    	newFileInput.type = 'file';
+		    	newFileInput.name = 'product_pics';
+
+		    	const newButton = document.createElement('button');
+		    	newButton.type = 'button';
+		    	newButton.classList.add('add-button');
+		    	newButton.textContent = '+';
+
+		    	newFileInputWrapper.appendChild(newFileInput);
+		    	newFileInputWrapper.appendChild(newButton);
+
+		    	document.querySelector('#file-inputs-container').appendChild(newFileInputWrapper);
+
+		    	fileInputCounter++;
+			}
+		});
+	});
+
 
 	</script>
 </body>

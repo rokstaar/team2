@@ -2,6 +2,10 @@ package com.market.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import com.market.domain.ProductVO;
 
 public interface ProductService {
@@ -25,5 +29,5 @@ public interface ProductService {
 	public double getScore(String name);
 	
 	// 상품정보 등록하기
-	public void regProduct(ProductVO vo);
+	public void regProduct(ProductVO vo, MultipartFile[] files, HttpServletRequest request) throws Exception;
 }

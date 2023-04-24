@@ -1,13 +1,19 @@
 package com.market.service;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.market.domain.ProductVO;
 import com.market.persistence.ProductDAO;
@@ -17,7 +23,9 @@ public class ProductServiceImpl implements ProductService{
 	
 	private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 	@Autowired
-	ProductDAO pdao;
+	private ProductDAO pdao;
+	@Autowired
+	private ServletContext context;
 	
 	@Override
 	public List<ProductVO> getProdList(String grade, String category, String title, String sort) {
@@ -57,7 +65,30 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public void regProduct(ProductVO vo) {
+	public void regProduct(ProductVO vo
+						, MultipartFile[] files
+						, HttpServletRequest request) throws Exception {
+		logger.info("service - 상품 등록");
+		String path = "C:\\Users\\ITWILL\\git\\market\\src\\main\\webapp\\resources\\images";
+		StringBuilder sb = new StringBuilder();
+		logger.info("경로 : " + path);
+		
+		for(MultipartFile file : files) {
+			if(!file.isEmpty()) {
+			    UUID uuid = UUID.randomUUID();
+			    String origin = file.getOriginalFilename();
+			    String fileName = uuid + "-" + origin;
+			    File saveFile = new File(path, fileName);
+			    file.transferTo(saveFile);
+			    if(sb.length() > 0) {
+			    	sb.append(",");
+			    }
+			    sb.append(fileName);
+			}
+		}
+	    vo.setProduct_pic(sb.toString());
+
+	    logger.info("vo : " + vo.toString());
 		pdao.regProduct(vo);
 	}
 
