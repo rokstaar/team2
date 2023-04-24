@@ -44,7 +44,7 @@
 
 							<!-- Banner -->
 								<section id="banner">
-									<form method="post">
+									<form method="post" enctype="multipart/form-data">
 														<div class="row gtr-uniform">
 															<div class="col-6 col-12-xsmall">
 																<input type="text" name="au_title" id="au_title" value="" placeholder="제목">
@@ -56,7 +56,7 @@
 																<input type="text" name="au_endPrice" id="au_endPrice" value="" placeholder="상한가">
 															</div>
 															<div class="col-6 col-12-xsmall">
-																<input type="datetime" name="au_endPrice" id="au_endPrice" value="" placeholder="종료시간">
+																<input type="datetime-local" name="au_endTime" id="au_endTime" value="" placeholder="종료시간">
 															</div>
 															<!-- Break -->
 															<div class="col-12">
@@ -69,7 +69,7 @@
 																</select>
 															</div>
 															<div class="col-6 col-12-xsmall">
-																<input type="file" name="au_pic" id="au_pic" value="" placeholder="사진등록">
+																<input type="file" name="file" id="au_pic" value="" placeholder="사진등록">
 															</div>
 															<!-- Break -->
 															<br>
