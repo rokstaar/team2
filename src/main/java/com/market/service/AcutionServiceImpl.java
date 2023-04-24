@@ -29,9 +29,30 @@ public class AcutionServiceImpl implements AuctionService {
 	}
 
 	@Override
-	public Integer registAuction() throws Exception {
-		return null;
+	public Integer registAuction(AuctionVO vo) throws Exception {
+		return adao.registerAuction(vo);
 	}
+
+	@Override
+	public AuctionVO getADetail(AuctionVO vo) throws Exception {
+		return adao.getADetail(vo);
+	}
+
+	@Override
+	public Integer getMpay(String id) throws Exception {
+		return adao.getMPay(id);
+	}
+
+	@Override
+	public void updateStatus(Integer au_num) throws Exception {
+		adao.updateStatus(au_num);
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	
