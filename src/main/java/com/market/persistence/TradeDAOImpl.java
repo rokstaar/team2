@@ -1,6 +1,7 @@
 package com.market.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -31,6 +32,18 @@ public class TradeDAOImpl implements TradeDAO{
 	public List<TradeVO> tSellReview() throws Exception {
 		
 		return sqlSession.selectList(NAMESPACE+".tSellReview");
+	}
+
+	@Override
+	public List<Map<String,Object>> buyList() throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+".buyList");
+	}
+	
+	@Override
+	public List<Map<String,Object>> prodList() throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+".prodList");
 	}
 
 	

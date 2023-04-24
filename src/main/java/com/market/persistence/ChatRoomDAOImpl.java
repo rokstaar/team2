@@ -10,12 +10,24 @@ import com.market.domain.ChatRoomVO;
 public class ChatRoomDAOImpl implements ChatRoomDAO {
 	
 	@Autowired
-	private SqlSession sqlsession;
+	private SqlSession sqlSession;
+	
+	private static final String NAMESPACE = "com.itwillbs.mapper.chatMapper";
 
 	@Override
 	public int selectChatRoom(ChatRoomVO crvo) {
-		 return sqlsession.selectOne("chat_room.selectChatRoom", crvo);
+		 return sqlSession.selectOne(NAMESPACE + ".selectChatRoom", crvo);
 	}
 	
+	@Override
+	public int searchRoomId(ChatRoomVO crvo) {
+		
+		return sqlSession.selectOne(NAMESPACE + "selectRoomId", crvo);
+	}
+
+	@Override
+	public int insertChatRoom(ChatRoomVO crvo) {
+		return sqlSession.insert(NAMESPACE + ".insertChatRoom", crvo);
+	}
 
 }

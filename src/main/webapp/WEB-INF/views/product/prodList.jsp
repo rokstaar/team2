@@ -6,6 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+  .custom-button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  .custom-button:focus {
+    outline: none;
+  }
+</style>
 </head>
 <body>
 	<h1>상품 페이지</h1>
@@ -30,7 +44,13 @@
 		<tbody>
 	<c:forEach var="list" items="${prodList }">
 		<tr>
-			<td>${list.product_num }</td>
+			<td>
+				<form action="/product/prodInfo" method="POST">
+					<input type="hidden" name="product_num" value="${list.product_num}">
+					<input type="hidden" name="seller" value="${list.product_seller}">
+					<button type="submit" class="link-button">${list.product_num}</button>
+				</form>
+			</td>
 			<td>${list.product_seller }</td>
 			<td>${list.product_cate }</td>
 			<td>${list.product_title }</td>
@@ -43,20 +63,34 @@
 			<td>${list.product_status }</td>
 			<td id="${list.product_num }">${list.product_favorite }</td>
 		</tr>
+		
+		<form id="prodRegForm" action="/product/prodReg" method="POST">
+			<input type="hidden" name="product_num" value="${list.product_num}">
+			<input type="hidden" name="id" value="${list.product_seller }">
+			<button type="button" class="custom-button" id="register">해당 유저로 상품 등록 페이지 가기</button>
+		</form>
 	</c:forEach>
 		</tbody>
 	</table>
+	
+	
+
 	
 	<a href="/product/prodList?category=가전제품&sort=price_asc">누르시오</a>
 	
 	<button type="button" onclick="likeit(1);">누르면 찜</button>
 	<button type="button" onclick="likecancel(1);">찜 취소하기</button>
 	
-	<a href="/product/prodInfo?product_num=1">상세 페이지 가기</a>
+	<a href="/product/prodInfo?product_num=1&seller=itwill">상세 페이지 가기</a>
 	
 	<script src="https://code.jquery.com/jquery-3.6.4.js" 
 	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 	<script>
+	$('#register').on('click', function() {
+		$('#prodRegForm').submit();
+	});
+
+	
 	// 찜하기,취소 나중에 click 익명 함수로
 	function likeit(pnum){
 		$.ajax({

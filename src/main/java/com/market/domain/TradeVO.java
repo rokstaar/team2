@@ -14,6 +14,5 @@ public class TradeVO {
 	private Timestamp prod_sell_date;
 	private int t_div;
 	private int type_div;
-	private String trade_review;
 	private String product_title;
 }

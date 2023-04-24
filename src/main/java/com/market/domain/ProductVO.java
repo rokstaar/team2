@@ -13,7 +13,7 @@ public class ProductVO {
 	private String product_title;
 	private String product_content;
 	private int product_price;
-	private String product_pic;
+	private Object product_pic;
 	private int product_readcount;
 	private Date product_date;
 	private String product_status;

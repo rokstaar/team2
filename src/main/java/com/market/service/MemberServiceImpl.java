@@ -18,5 +18,19 @@ public class MemberServiceImpl implements MemberService {
 		
 		return mvo.loginMember(vo);
 	}
+
+	@Override
+	public void memberJoin(MemberVO vo) {
+		
+		mvo.insertMember(vo);
+	}
+
+	@Override
+	public int idChk(MemberVO vo) throws Exception {
+		return mvo.idChk(vo);
+	}
+
+
+   
 	
 }

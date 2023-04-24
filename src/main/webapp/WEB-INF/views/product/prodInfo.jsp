@@ -12,6 +12,13 @@
 	
 	${productVO }
 	
+	판매자 온도 : ${score }
+	<br>
+	<img src="/resources/images/score_good.png">
+	
+	
+	<button>판매자와 채팅하기</button>
+	
 	
 	<hr>
 	<h4> 이런 제품은 어떠세요? </h4>
@@ -35,11 +42,13 @@
                 
                 var productHtml = '<ul>';
                 for (var i = 0; i < response.length; i++) {
-                    productHtml += '<li>' + response[i].product_num + '</li>';
-                    productHtml += '<li>' + response[i].product_seller + '</li>';
-                    productHtml += '<li>' + response[i].product_pic + '</li>';
-                    productHtml += '<li>' + response[i].product_title + '</li>';
-                    productHtml += '<li>' + response[i].product_content + '</li>';
+                	if(response[i].product_num != ${productVO.product_num}){
+	                    productHtml += '<li>' + response[i].product_num + '</li>';
+	                    productHtml += '<li>' + response[i].product_seller + '</li>';
+	                    productHtml += '<li>' + response[i].product_pic + '</li>';
+	                    productHtml += '<li>' + response[i].product_title + '</li>';
+	                    productHtml += '<li>' + response[i].product_content + '</li>';
+                	}
                 }
                 productHtml += '</ul>';
 

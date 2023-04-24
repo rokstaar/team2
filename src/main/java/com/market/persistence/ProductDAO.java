@@ -24,4 +24,10 @@ public interface ProductDAO {
 	
 	// 같은 종류의 상품 추천
 	public List<ProductVO> getRecProdList(String product_cate);
+	
+	// 판매자 매너점수(온도)
+	public double getScore(String reviewee);
+	
+	// 상품 등록
+	public void regProduct(ProductVO vo);
 }

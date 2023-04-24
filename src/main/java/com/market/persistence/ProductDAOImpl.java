@@ -47,6 +47,16 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<ProductVO> getRecProdList(String product_cate) {
 		return session.selectList(NAMESPACE + ".recProd", product_cate);
 	}
+
+	@Override
+	public double getScore(String reviewee) {
+		return session.selectOne(NAMESPACE + ".getScore", reviewee);
+	}
+
+	@Override
+	public void regProduct(ProductVO vo) {
+		session.insert(NAMESPACE + ".regProd", vo);
+	}
 	
 	
 }

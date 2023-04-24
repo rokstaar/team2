@@ -51,4 +51,14 @@ public class ProductServiceImpl implements ProductService{
 		return pdao.getRecProdList(category);
 	}
 
+	@Override
+	public double getScore(String name) {
+		return pdao.getScore(name);
+	}
+
+	@Override
+	public void regProduct(ProductVO vo) {
+		pdao.regProduct(vo);
+	}
+
 }

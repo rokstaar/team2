@@ -1,6 +1,7 @@
 package com.market.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -12,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.market.domain.MemberVO;
 import com.market.domain.TradeVO;
 import com.market.service.TradeService;
 
@@ -36,17 +36,12 @@ public class TradeController {
 		
 		List<TradeVO> tBuyReview = service.getBuyReview();
 		model.addAttribute("tBuyReview",tBuyReview);	
-		logger.info(tBuyReview+"@@@@@@@@@@@@@@@@@@@@");
 		
 		return "/trade/tradeReview";
 	}
 	
 	@RequestMapping(value = "/buyReview", method = RequestMethod.GET)
 	public String buyReview(Model model) throws Exception {
-		
-		List<TradeVO> getBuyReview = service.getBuyReview();
-		model.addAttribute("getBuyReview",getBuyReview);	
-		logger.info(getBuyReview+"@@@@@@@@@@@@@@@@@@@@");
 		
 		
 		return "/trade/buyReview";
@@ -58,10 +53,32 @@ public class TradeController {
 		
 		List<TradeVO> tSellReview = service.tSellReview();
 		model.addAttribute("tSellReview",tSellReview);	
-		logger.info(tSellReview+"@@@@@@@@@@@@@@@@@@@@");
 		
 		
 		return "/trade/sellReview";
+	}
+	
+	@RequestMapping(value = "/buyList", method = RequestMethod.GET)
+	public void buyList(Model model) throws Exception {
+		
+		List<Map<String,Object>> buyList = service.buyList();
+		logger.info("b@@@@@@@@@@@@@@"+buyList);
+		
+		
+		model.addAttribute("buyList",buyList);
+		
+		
+	}
+	
+	@RequestMapping(value = "/prodList", method = RequestMethod.GET)
+	public void prodList(Model model) throws Exception {
+		
+		List<Map<String,Object>> prodList = service.prodList();
+		logger.info("b@@@@@@@@@@@@@@"+prodList);
+		
+		model.addAttribute("prodList",prodList);
+		
+		
 	}
 
 }

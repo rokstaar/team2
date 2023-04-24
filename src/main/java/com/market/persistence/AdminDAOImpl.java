@@ -9,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.market.domain.CustomerserviceVO;
 import com.market.domain.MemberVO;
+import com.market.domain.NoticeVO;
 import com.market.domain.ProductVO;
 
 @Repository
@@ -39,6 +41,38 @@ public class AdminDAOImpl implements AdminDAO {
 		
         return productList;
 	}
+
+	@Override
+	public void createNotice(NoticeVO vo) throws Exception {
+		sqlSession.insert(NAMESPACE+".writeNotice", vo);
+	}
+
+	@Override
+	public List<NoticeVO> getNoticeList() throws Exception {
+         List<NoticeVO> noticeList = sqlSession.selectList(NAMESPACE+".getNoticeList");
+		return noticeList;
+	}
+
+	@Override
+	public void addReadcnt(Integer noti_num) throws Exception {
+		sqlSession.update(NAMESPACE+".addReadcnt",noti_num);
+	}
+
+	@Override
+	public NoticeVO getNotice(Integer noti_num) throws Exception {
+
+		return sqlSession.selectOne(NAMESPACE+".getNotice",noti_num);
+	}
+
+	@Override
+	public Integer updateBoard(NoticeVO uvo) throws Exception {
+
+		return sqlSession.update(NAMESPACE+".updateNotice",uvo);
+	}  
+	
+	
+	
+	
 	
 	
 

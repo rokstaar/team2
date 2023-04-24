@@ -1,6 +1,7 @@
 package com.market.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -31,6 +32,21 @@ public class TradeServiceImpl implements TradeService{
 		return tdao.tSellReview();
 	}
 
+	@Override
+	public List<Map<String,Object>> buyList() throws Exception {
+		
+		
+		return tdao.buyList();
+		
+	}
+	
+	@Override
+	public List<Map<String,Object>> prodList() throws Exception {
+		
+		
+		return tdao.prodList();
+		
+	}
 	
 	
 }

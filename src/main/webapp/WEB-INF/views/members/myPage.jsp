@@ -236,27 +236,14 @@ div{
 
 	<body>
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
 
 							<!-- Header -->
-								<header id="header">
-									<a href="/main" class="logo"><strong>있지마켓</strong></a>
-									<ul class="icons">
-										<c:if test="${id == null }">
-											<li><a href="/members/login"><span class="label">로그인</span></a></li>
-										</c:if>
-										<c:if test="${id != null }">
-											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
-											<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
-											<li><a href="#"><span class="label">판매하기</span></a></li>
-											<li><a href="/chat"><span class="label">내채팅</span></a></li>
-										</c:if>										
-									</ul>
-								</header>
+								<%@ include file="../include/header.jsp" %>
 
 							<!-- Banner -->
 								<section id="banner">
@@ -326,7 +313,7 @@ div{
 						</div>
 					</div>
 
-					<%@ include file="../include/sidebar.jsp" %>
+					<%-- <%@ include file="../include/sidebar.jsp" %> --%>
 			</div>
 
 

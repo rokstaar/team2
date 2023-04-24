@@ -244,19 +244,7 @@ div{
 						<div class="inner">
 
 							<!-- Header -->
-								<header id="header">
-									<a href="/main" class="logo"><strong>있지마켓</strong></a>
-									<ul class="icons">
-										<c:if test="${id == null }">
-											<li><a href="/members/login"><span class="label">로그인</span></a></li>
-										</c:if>
-										<c:if test="${id != null }">
-											<li><a href="/members/logout"><span class="label">로그아웃</span></a></li>
-											<li><a href="/members/myPage" ><span class="label">마이페이지</span></a></li>
-											<li><a href="/members/logout"><span class="label">판매하기</span></a></li>
-										</c:if>
-									</ul>
-								</header>
+								<%@ include file="../include/header.jsp" %>
 
 							<!-- Banner -->
 								<section id="banner">
@@ -277,18 +265,18 @@ div{
 									        </div>
 									      </div>
 									      
-									      <div class="item">
-									        <div>
+									    <div class="item">
+									      <a href="/trade/review" >  <div>
 									          <div class="text">거래내역</div>
-									          <div class="rightBlue number">6</div>
+									          <div class="rightBlue number">3</div></a>
 									        </div>
-									      </div>     
-									      <div class="item">
+									      </div>      
+									       <div class="item">
 									        <div>
-									          <div class="text">거래내역</div>
-									          <div class="rightBlue number">6</div>
+									        <a href="/trade/buyList" >  <div class="text">구매내역</div>
+									          <div class="rightBlue number">6</div></a>
 									        </div>
-									      </div>     
+									      </div>        
 									      <div class="item">
 									        <div>
 									          <div class="text">경매내역</div>
@@ -302,7 +290,7 @@ div{
 									        </div>
 									      </div>     
 									      <div class="item">
-									      <a href="/trade/review">  <div>
+									      <a href="#">  <div>
 									          <div class="text">거래후기</div>
 									          <div class="rightBlue number">3</div></a>
 									        </div>
@@ -316,17 +304,18 @@ div{
 									 
 									 <div class="infoContainer">
 									    <a href="/trade/buyReview" class="item">
-									      <div>구매후기</div>
+									      <div>구매내역</div>
 									    </a>    
 									   
 									
 									    <a href="/trade/sellReview" class="item">
-									      <div>판매후기</div>
+									      <div>판매내역</div>
 									    </a>    
 									  </div>	
 										 <div>
 									    <c:forEach var="tBuyReview"  items="${tBuyReview }">
 											<tr>
+											
 												<td>${tBuyReview.t_num }</td>
 												<td>
 												  	 ${tBuyReview.sell_mem_id }

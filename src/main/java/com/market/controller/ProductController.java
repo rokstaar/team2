@@ -10,10 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.market.domain.ProductVO;
 import com.market.service.ProductService;
@@ -56,11 +60,13 @@ public class ProductController {
 	// 상품 찜취소하기
 	
 	// 상품 정보 가져오기
-	@GetMapping(value = "/prodInfo")
-	public void getProdInfo(@RequestParam(value = "product_num") int pnum
-			, Model model) {
+	@RequestMapping(value = "/prodInfo",method = {RequestMethod.GET, RequestMethod.POST})
+	public void getProdInfo(@ModelAttribute(value = "product_num") int pnum
+							,@ModelAttribute(value = "seller") String name
+							, Model model) {
 		logger.info("상품 정보 가져오기!");
 		model.addAttribute(service.getProdInfo(pnum));
+		model.addAttribute("score", service.getScore(name));
 	}
 	// 상품 정보 가져오기
 	
@@ -73,4 +79,27 @@ public class ProductController {
 		return service.getRecProdList(category);
 	}
 	// 같은 종류의 추천 상품 가져오기
+	
+	// 상품 등록 페이지
+	@PostMapping(value = "/prodReg")
+	public void prodReg(@RequestParam(value = "id") String id,
+			@RequestParam(value = "product_num") int pnum, Model model) {
+		model.addAttribute("id",id);
+		model.addAttribute("product_num",pnum);
+	}
+	// 상품 등록 페이지
+	
+	// 상품 등록 후 해당 페이지
+	@PostMapping(value = "/regProduct")
+	public String regProduct(ProductVO productVO 
+							,MultipartHttpServletRequest request
+							,RedirectAttributes rttr) {
+		logger.info(productVO.toString());
+		service.regProduct(productVO);
+		
+		rttr.addFlashAttribute("product_num", productVO.getProduct_num());
+		rttr.addFlashAttribute("seller", productVO.getProduct_seller());
+		return "redirect:/product/prodInfo";
+	}
+	// 상품 등록 후 해당 페이지
 }

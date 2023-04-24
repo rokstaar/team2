@@ -20,4 +20,10 @@ public interface ProductService {
 	
 	// 같은 카테고리의 상품 상위 8개 무작위 추출
 	public List<ProductVO> getRecProdList(String category);
+	
+	// 판매자 매너점수 가져오기
+	public double getScore(String name);
+	
+	// 상품정보 등록하기
+	public void regProduct(ProductVO vo);
 }
