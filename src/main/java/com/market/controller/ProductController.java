@@ -35,13 +35,13 @@ public class ProductController {
 	
 	// 상품 리스트
 	@GetMapping(value = "/prodList")
-	public String getProdList(@RequestParam(value = "sort", defaultValue="") String sort, 
-							@RequestParam(value = "status", required = false) String status,
+	public String getProdList(@RequestParam(value = "sort", defaultValue="") String sort,
+							@RequestParam(value = "grade", required = false) String grade,
 							@RequestParam(value = "category", required = false) String category,
 							@RequestParam(value = "title", required = false) String title,
-			Model model){
+							Model model){
 		logger.info("상품 페이지 호출 {}", sort);
-		List<ProductVO> list = service.getProdList(status, category, title, sort);
+		List<ProductVO> list = service.getProdList(grade, category, title, sort);
 		model.addAttribute("prodList", list);
 		
 		return "/product/prodList";
@@ -67,8 +67,8 @@ public class ProductController {
 	public void getProdInfo(@ModelAttribute(value = "product_num") int pnum
 							,@ModelAttribute(value = "seller") String name
 							, Model model) {
-		logger.info("상품 정보 가져오기!");
-		model.addAttribute(service.getProdInfo(pnum));
+		logger.info("상품 정보 가져오기! {}", service.getProdInfo(pnum));
+		model.addAttribute("info", service.getProdInfo(pnum));
 		model.addAttribute("score", service.getScore(name));
 	}
 	// 상품 정보 가져오기

@@ -37,8 +37,9 @@ public class ProductDAOImpl implements ProductDAO{
 		session.update(NAMESPACE + ".likeProdCancel", product_num);
 	}
 
+	// 상품 정보
 	@Override
-	public ProductVO getProdInfo(int product_num) {
+	public Map<String, Object> getProdInfo(int product_num) {
 		logger.info("DAO - 상품 정보 가져오기");
 		return session.selectOne(NAMESPACE + ".getProdInfo", product_num);
 	}

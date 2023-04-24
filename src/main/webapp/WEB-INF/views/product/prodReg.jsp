@@ -13,17 +13,17 @@
 		<input type="text" name="product_seller" value="${id }">
 		분류
 		<select name="product_cate">
-			<option value="cloth">의류</option>
-			<option value="homeapp">가전제품</option>
-			<option value="furniture">식기,가구</option>
-			<option value="elec">디지털,전자기기</option>
-			<option value="food">식품,생필품</option>
-			<option value="sport">스포츠,건강</option>
-			<option value="mecha">기기,공구</option>
-			<option value="book">도서,쿠폰</option>
-			<option value="kid">유아</option>
-			<option value="pet">애완동물</option>
-			<option value="etc">기타</option>
+			<option value="의류">의류</option>
+			<option value="가전제품">가전제품</option>
+			<option value="식기,가구">식기,가구</option>
+			<option value="디지털,전자기기">디지털,전자기기</option>
+			<option value="식품,생필품">식품,생필품</option>
+			<option value="스포츠,건강">스포츠,건강</option>
+			<option value="기기,공구">기기,공구</option>
+			<option value="도서,쿠폰">도서,쿠폰</option>
+			<option value="유아">유아</option>
+			<option value="애완동물">애완동물</option>
+			<option value="기타">기타</option>
 		</select><br>
 		제목 <input type="text" name="product_title"><br>
 		내용 <input type="text" name="product_content"><br>

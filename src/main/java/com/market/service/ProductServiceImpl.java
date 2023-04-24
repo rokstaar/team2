@@ -49,7 +49,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public ProductVO getProdInfo(int pnum) {
+	public Map<String, Object> getProdInfo(int pnum) {
 		logger.info("service - 상품 정보 가져오기");
 		return pdao.getProdInfo(pnum);
 	}
