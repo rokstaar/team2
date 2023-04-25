@@ -77,18 +77,6 @@
 	판매글 : ${info.product_content }<br>
 	판매자 온도 : ${score }<br>
 	<br>
-	<c:if test="${info.score > 3.75 }">
-	<img src="/resources/images/score_verygood.png">
-	</c:if>
-	<c:if test="${info.score > 3.75 }">
-	<img src="/resources/images/score_verygood.png">
-	</c:if>
-	<c:if test="${info.score > 3.75 }">
-	<img src="/resources/images/score_verygood.png">
-	</c:if>
-	<c:if test="${info.score > 3.75 }">
-	<img src="/resources/images/score_verygood.png">
-	</c:if>
 	
 	<c:choose>
 		<c:when test="${score > 3.75 }">
@@ -112,7 +100,9 @@
 		<img src="/resources/images/default1.jpg" style="width:200px;">
 	</c:forEach>
 
-	
+	<?xml version="1.0" ?><svg height="24" version="1.1" width="24" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><g transform="translate(0 -1028.4)"><path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#c0392b"/></g></svg>
+	<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 48 48" height="22px" id="Layer_1" version="1.1" viewBox="0 0 48 48" width="22px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path clip-rule="evenodd" d="M24.804,43.648L24,44l-0.804-0.352C12.862,37.313,2,22.893,2,14.884  C2.035,8.326,7.404,3.002,14,3.002c4.169,0,7.849,2.128,10,5.349c2.151-3.221,5.831-5.349,10-5.349c6.596,0,11.965,5.324,12,11.882  C46,22.893,35.138,37.313,24.804,43.648z M34,4.993c-3.354,0-6.469,1.667-8.335,4.46L24,11.946l-1.665-2.494  C20.469,6.66,17.354,4.993,14,4.993c-5.484,0-9.971,4.442-10,9.891c0,7.064,10.234,20.808,20,26.917  c9.766-6.109,20-19.852,20-26.907C43.971,9.435,39.484,4.993,34,4.993z" fill-rule="evenodd"/></svg>
+		
 	<button>판매자와 채팅하기</button>
 	
 	
